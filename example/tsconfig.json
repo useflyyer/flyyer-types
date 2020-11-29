@@ -1,0 +1,8 @@
+{
+  // Do use this file in your templates
+  "compilerOptions": {
+    "strict": true,
+    "jsx": "react",
+    "esModuleInterop": true,
+  },
+}
