@@ -1,8 +1,10 @@
 {
-  // Do use this file in your templates
   "compilerOptions": {
     "strict": true,
     "jsx": "react",
     "esModuleInterop": true,
+    "allowJs": true,
   },
+  "exclude": ["node_modules", ".flayyer-cache", ".flayyer-dev", ".flayyer-dist", ".flayyer-processed"],
+  "include": ["types.d.ts", "**/*.ts", "**/*.tsx"]
 }

@@ -17,6 +17,9 @@ yarn add --dev @flayyer/flayyer-types
 The provided `TemplateProps<T>` accepts a generic object type for the possible variables passed to the template. Keep in mind not every variable is guaranteed to be present, this is the reason why every variable will be marked as _possibly undefined_.
 
 ```tsx
+import React from "react";
+import { TemplateProps } from "@flayyer/flayyer-types";
+
 export default function SimpleTemplate({ variables }: TemplateProps) {
   const title = variables.title; // type is `string | undefined`;
   return (
@@ -66,5 +69,32 @@ export default function MainTemplate({ variables }: TemplateProps<Variables>) {
     </div>
   );
 }
+```
 
+## Import assets
+
+Remove Typescript warning when importing files such as images, fonts, style files, etc.
+Use the following code in a `types.d.ts` file in the root fo your Flayyer project.
+
+```ts
+// types.d.ts
+
+/// <reference types="@flayyer/flayyer-types/global" />
+```
+
+## Experimental Javascript support
+
+You can help your IDE with typing information. Here is an working but experimental example in Visual Studio Code:
+
+```js
+import { TemplateProps } from "@flayyer/flayyer-types"; // eslint-disable-line no-unused-vars
+
+/**
+ * Make sure to default export a React component
+ * @param {TemplateProps} [props] - Flayyer props.
+ */
+export default function JavascriptTemplate({ variables }) {
+  const title = variables.title; // IDE will suggest `title` has type `string | undefined`
+  // ...
+}
 ```

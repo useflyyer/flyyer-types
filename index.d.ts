@@ -29,6 +29,6 @@ export type TemplateProps<T = { [key: string]: string }> = {
    */
   variables: {
     // Taken from `Partial<K>` source code
-    [P in keyof T]?: FlayyerSerializable<T[P]>;
+    [P in keyof T]: FlayyerSerializable<T[P]> | undefined;
   };
 };

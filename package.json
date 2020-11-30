@@ -15,6 +15,7 @@
     "test": "echo \"No test specified\""
   },
   "files": [
+    "global.d.ts",
     "index.d.ts"
   ],
   "devDependencies": {
