@@ -1,6 +1,6 @@
 import React from "react";
 
-import { TemplateProps } from "..";
+import { TemplateProps, FlayyerAgentName } from "..";
 
 type Variables = {
   title: string;
@@ -18,7 +18,7 @@ type Variables = {
   ];
 };
 
-export default function MainTemplate({ variables }: TemplateProps<Variables>) {
+export default function MainTemplate({ agent, variables }: TemplateProps<Variables>) {
   const {
     title, // type is `string | undefined`
     count, // type is `string | undefined`
@@ -27,6 +27,11 @@ export default function MainTemplate({ variables }: TemplateProps<Variables>) {
     object, // type is a recursive object with `string | undefined` values
     array, // type is a recursive array with `string | undefined` values
   } = variables;
+
+  if (agent.name === FlayyerAgentName.WHATSAPP) {
+    // Custom rules for squared template
+    return <div>{title && <h1>{title}</h1>}</div>;
+  }
 
   return <div>{title && <h1>{title}</h1>}</div>;
 }

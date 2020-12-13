@@ -71,6 +71,25 @@ export default function MainTemplate({ variables }: TemplateProps<Variables>) {
 }
 ```
 
+### Platform information
+
+Sometimes we can identify which platform your link are being shared on. You can get this information via the `agent` prop.
+
+```tsx
+import React from "react";
+import { TemplateProps, FlayyerAgentName } from "@flayyer/flayyer-types";
+
+export default function MainTemplate({ agent }: TemplateProps) {
+  if (agent.name === FlayyerAgentName.WHATSAPP) {
+    // Custom rules for squared template
+    return ...
+  } else {
+    // Default 1200x630 banner.
+    return ...
+  }
+}
+```
+
 ## Import assets
 
 Remove Typescript warning when importing files such as images, fonts, style files, etc.

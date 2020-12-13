@@ -14,6 +14,41 @@ export type FlayyerSerializable<T> = T extends string | number | boolean | Date
   ? { [K in keyof T]: FlayyerSerializable<T[K]> }
   : string | undefined;
 
+/**
+ * Some popular user-agents but not limited to this list.
+ * Future agents will be added over time.
+ */
+export enum FlayyerAgentName {
+  FACEBOOK = "facebook",
+  WHATSAPP = "whatsapp",
+  LINKEDIN = "linkedin",
+  PINTEREST = "pinterest",
+  TELEGRAM = "telegram",
+  TWITTER = "twitter",
+  BING = "bing",
+  REDDIT = "reddit",
+  GOOGLE = "google",
+  GOOGLE_ADS = "google ads",
+  AMAZON_ALEXA = "amazon alexa",
+  AMAZON = "amazon",
+  YANDEX = "yandex",
+  YAHOO = "yahoo",
+  HUBSPOT = "hubspot",
+  MSN = "msn",
+  ZOOM = "zoom",
+  SLACK = "slack",
+  DISCORD = "discord",
+  SAFARI = "safari",
+  FLIPBOARD = "flipboard",
+  APPLE = "apple",
+  DUCKDUCKGO = "duckduckgo",
+  DISQUS = "disqus",
+}
+
+export type FlayyerAgent = {
+  name?: FlayyerAgentName | string;
+};
+
 export type TemplateProps<T = { [key: string]: string }> = {
   /**
    * Provided variables parsed from the query-string of the smart Flayyer URL.
@@ -31,4 +66,24 @@ export type TemplateProps<T = { [key: string]: string }> = {
     // Taken from `Partial<K>` source code
     [P in keyof T]: FlayyerSerializable<T[P]> | undefined;
   };
+
+  /**
+   * Represents the crawler of the site where a link was posted.
+   * @example
+   * function Template({ agent, variables }: TemplateProps) {
+   *   if (agent.name === "whatsapp") {
+   *     // Rendered as squared template
+   *   }
+   * }
+   */
+  agent: FlayyerAgent;
+
+  /**
+   * User-provided ID to identify the template on future analytic reports
+   */
+  id?: string;
+  /**
+   * User-provided tags to identify the template on future analytic reports
+   */
+  tags?: string[];
 };
