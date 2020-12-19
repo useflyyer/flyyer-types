@@ -4,14 +4,14 @@
  * Recursive query-string serializable object
  * @see Kudos to this person: https://stackoverflow.com/a/57859435
  */
-export type FlayyerSerializable<T> = T extends string | number | boolean | Date
+export type FlayyerSerializable<V> = V extends string | number | boolean | Date
   ? string | undefined
-  : T extends null | undefined
-  ? T
-  : T extends Function
+  : V extends null | undefined
+  ? V
+  : V extends Function
   ? never
-  : T extends object
-  ? { [K in keyof T]: FlayyerSerializable<T[K]> }
+  : V extends object
+  ? { [K in keyof V]: FlayyerSerializable<V[K]> }
   : string | undefined;
 
 /**
@@ -21,6 +21,7 @@ export type FlayyerSerializable<T> = T extends string | number | boolean | Date
 export enum FlayyerAgentName {
   FACEBOOK = "facebook",
   WHATSAPP = "whatsapp",
+  INSTAGRAM = "instagram",
   LINKEDIN = "linkedin",
   PINTEREST = "pinterest",
   TELEGRAM = "telegram",
@@ -49,7 +50,7 @@ export type FlayyerAgent = {
   name?: FlayyerAgentName | string;
 };
 
-export type TemplateProps<T = { [key: string]: string }> = {
+export type TemplateProps<Variables = { [key: string]: string }> = {
   /**
    * Provided variables parsed from the query-string of the smart Flayyer URL.
    * This object has been decoded and parsed, but keep in mind that every variable is a `string`, `object` or an `array`.
@@ -64,7 +65,7 @@ export type TemplateProps<T = { [key: string]: string }> = {
    */
   variables: {
     // Taken from `Partial<K>` source code
-    [P in keyof T]: FlayyerSerializable<T[P]> | undefined;
+    [P in keyof Variables]: FlayyerSerializable<Variables[P]> | undefined;
   };
 
   /**
