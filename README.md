@@ -1,5 +1,10 @@
 # @flayyer/flayyer-types
 
+![npm-version](https://badgen.net/npm/v/@flayyer/flayyer-types)
+![downloads](https://badgen.net/npm/dt/@flayyer/flayyer-types)
+![size](https://badgen.net/bundlephobia/minzip/@flayyer/flayyer-types)
+![tree-shake](https://badgen.net/bundlephobia/tree-shaking/@flayyer/flayyer-types)
+
 Flayyer type definition for Typescript templates created with [create-flayyer-app](https://github.com/flayyer/create-flayyer-app/).
 
 **Want to learn more about smart image previews? Visit as at [flayyer.com](https://flayyer.com?ref=flayyer-types)**
