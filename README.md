@@ -7,7 +7,9 @@
 
 Flayyer type definition for Typescript templates created with [create-flayyer-app](https://github.com/flayyer/create-flayyer-app/).
 
-**Want to learn more about smart image previews? Visit as at [flayyer.com](https://flayyer.com?ref=flayyer-types)**
+**👉 Want to learn more about smart image previews? Visit as at [flayyer.com](https://flayyer.com?ref=flayyer-types)**
+
+**📖 Checkout our official documentation: [docs.flayyer.com](https://docs.flayyer.com/docs/advanced/typescript)**
 
 ## Install
 
