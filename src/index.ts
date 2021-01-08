@@ -20,6 +20,7 @@ export type FlayyerSerializable<V> = V extends string | number | boolean | Date
  */
 export enum FlayyerAgentName {
   FACEBOOK = "facebook",
+  MESSENGER = "messenger",
   WHATSAPP = "whatsapp",
   INSTAGRAM = "instagram",
   LINKEDIN = "linkedin",
