@@ -1,38 +1,24 @@
-import resolve from "rollup-plugin-node-resolve";
-import commonjs from "rollup-plugin-commonjs";
-import sourceMaps from "rollup-plugin-sourcemaps";
-import typescript from "rollup-plugin-typescript2";
-import json from "rollup-plugin-json";
+/* eslint-disable @typescript-eslint/no-var-requires */
+import dts from "rollup-plugin-dts";
+import esbuild from "rollup-plugin-esbuild";
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const pkg = require("./package.json");
+const name = require("./package.json").main.replace(/\.js$/, "");
 
-const libraryName = "index";
+const ext = (format) => (format == "dts" ? "d.ts" : format == "cjs" ? "js" : "mjs");
 
-export default {
-  input: `src/${libraryName}.ts`,
-  output: [
-    { file: pkg.main, name: libraryName, format: "umd", sourcemap: true },
-    { file: pkg.module, format: "es", sourcemap: true },
-  ],
-  // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
-  external: ["qs"],
-  watch: {
-    include: "src/**",
+const bundle = (format) => ({
+  input: "src/index.ts",
+  output: {
+    file: `${name}.${ext(format)}`,
+    format: format == "cjs" ? "cjs" : "es",
+    sourcemap: format != "dts",
   },
-  plugins: [
-    // Allow json resolution
-    json(),
-    // Compile TypeScript files
-    typescript({ useTsconfigDeclarationDir: true }),
-    // Allow bundling cjs modules (unlike webpack, rollup doesn't understand cjs)
-    commonjs(),
-    // Allow node_modules resolution, so you can use 'external' to control
-    // which external modules to include in the bundle
-    // https://github.com/rollup/rollup-plugin-node-resolve#usage
-    resolve(),
+  plugins: format == "dts" ? [dts()] : [esbuild()],
+  external: (id) => !/^[./]/.test(id),
+});
 
-    // Resolve source maps to the original source
-    sourceMaps(),
-  ],
-};
+export default [
+  bundle("es"), //
+  bundle("cjs"),
+  bundle("dts"),
+];
