@@ -81,6 +81,15 @@ export type TemplateProps<Variables = { [key: string]: string }> = {
   agent: FlayyerAgent;
 
   /**
+   * Viewport and image width dimension in pixels.
+   */
+  width: number;
+  /**
+   * Viewport and image width dimension in pixels.
+   */
+  height: number;
+
+  /**
    * User-provided ID to identify the template on future analytic reports
    */
   id?: string;
