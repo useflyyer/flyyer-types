@@ -98,3 +98,28 @@ export type TemplateProps<Variables = { [key: string]: string }> = {
    */
   tags?: string[];
 };
+
+export type UserAgentSize = [number, number];
+
+export const Sizes = {
+  /**
+   * Smallest size, usually for WhatsApp.
+   */
+  THUMBNAIL: [400, 400] as UserAgentSize,
+  /**
+   * Most common size for og:image and twitter:image, this is the most universal of all.
+   */
+  BANNER: [1200, 630] as UserAgentSize,
+  /**
+   * For sites such as Pinterest.
+   */
+  VERTICAL: [800, 1200] as UserAgentSize,
+  /**
+   * To export to Instagram post format.
+   */
+  SQUARE: [1080, 1080] as UserAgentSize,
+  /**
+   * To export to story format in platforms such as Instagram, Facebook and Twitter.
+   */
+  STORY: [1080, 1920] as UserAgentSize,
+};
