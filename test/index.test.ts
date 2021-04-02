@@ -15,6 +15,6 @@ describe("TemplateProps", () => {
     // expect(props.variables.title.toUpperCase()).toBeTruthy();
 
     // Should pass
-    expect(props.variables.title?.toUpperCase()).toBeTruthy();
+    expect(props.variables.title && props.variables.title.toUpperCase()).toBeTruthy();
   });
 });
