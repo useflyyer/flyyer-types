@@ -1,6 +1,6 @@
 {
   "name": "@flayyer/flayyer-types",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Flayyer type definition for Typescript templates",
   "keywords": [
     "flayyer"
