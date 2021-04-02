@@ -97,6 +97,26 @@ export default function MainTemplate({ agent }: TemplateProps) {
 }
 ```
 
+Handle multiple locales (languages) by reading the `lang` prop. You can use some lightweight libraries to process locale internationalization (i18n) just like: [lukeed/rosetta](https://github.com/lukeed/rosetta) and [airbnb/polyglot.js](https://github.com/airbnb/polyglot.js).
+
+```tsx
+export default function MainTemplate({ lang }: TemplateProps) {
+  if (!lang) {
+    // no locale info was provided
+  } else if (lang === "en") {
+    // ...
+  } else if (lang === "es-CO") {
+    // ...
+  }
+
+  // Native Intl module is supported ✅
+  const formatter = new Intl.DateTimeFormat(lang);
+  const humanized = formatter.format(new Date());
+}
+```
+
+> NOTE: Sometimes web proxies used by crawlers ignores user's actual locale.
+
 ## Import assets
 
 Remove Typescript warning when importing files such as images, fonts, style files, etc.

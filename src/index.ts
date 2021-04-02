@@ -81,6 +81,13 @@ export type TemplateProps<Variables = { [key: string]: string }> = {
   agent: FlayyerAgent;
 
   /**
+   * Probably the viewer's locale but can depend on many factors such as proxies or web browsers.
+   * Take this value with a grain of salt.
+   * If no lang was present the value by default is `undefined` which is safe for native `Intl` modules.
+   */
+  lang?: string;
+
+  /**
    * Viewport and image width dimension in pixels.
    */
   width: number;
