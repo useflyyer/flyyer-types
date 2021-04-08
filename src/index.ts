@@ -158,7 +158,7 @@ export const Sizes = {
 
 export type FlayyerConfig = {
   /**
-   * Rendering engine.
+   * Engine/framework used to develop the templates.
    */
   engine: "react" | "react-typescript" | "vue" | "vue-typescript";
 
@@ -170,6 +170,7 @@ export type FlayyerConfig = {
    *
    * - To setup automatic deploys you can use a CI like Github Actions, see guide here: {@link https://docs.flayyer.com/docs/advanced/automatic-deploys}
    *
+   * @default process.env.FLAYYER_KEY
    */
   key: string;
 
@@ -189,10 +190,15 @@ export type FlayyerConfig = {
    */
   name?: string | null;
   /**
-   * Optional user friendly description, markdown is allowed.
+   * Optional user friendly description, Markdown is allowed.
    */
   description?: string | null;
 };
+
+/**
+ * This is optional but will help your IDE with IntelliSense to autocomplete and hint you.
+ * See {@link https://docs.flayyer.com/docs/cli/flayyer-cli#flayyerconfigjs} for more info.
+ */
 export function config(params: FlayyerConfig): FlayyerConfig {
   // TODO: validate
   return params;
