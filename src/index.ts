@@ -155,3 +155,45 @@ export const Sizes = {
    */
   STORY: [1080, 1920] as UserAgentSize,
 };
+
+export type FlayyerConfig = {
+  /**
+   * Rendering engine.
+   */
+  engine: "react" | "react-typescript" | "vue" | "vue-typescript";
+
+  /**
+   * **This field is required:** `FLAYYER_KEY` api key to identify your tenant/company on flayyer.com.
+   * Get your key at {@link https://flayyer.com/dashboard/_/settings}.
+   *
+   * By default you can set this field to `process.env.FLAYYER_KEY` and read the value from the environment, but remember to use `dotenv`.
+   *
+   * - To setup automatic deploys you can use a CI like Github Actions, see guide here: {@link https://docs.flayyer.com/docs/advanced/automatic-deploys}
+   *
+   */
+  key: string;
+
+  /**
+   * Identifier of this deck of templates in your tenant/company account. **Only lowercase letters, numbers and dashes are allowed**.
+   *
+   * **This will create a new version of previous deployed instances of this code.**
+   * You can always refer a specific version by setting the `version` field, see {@link https://docs.flayyer.com/docs/concepts#url-anatomy}
+   *
+   * - `my-project-1`: OK
+   * - `My Project`: INVALID
+   */
+  deck: string;
+
+  /**
+   * Optional user friendly name.
+   */
+  name?: string | null;
+  /**
+   * Optional user friendly description, markdown is allowed.
+   */
+  description?: string | null;
+};
+export function config(params: FlayyerConfig): FlayyerConfig {
+  // TODO: validate
+  return params;
+}

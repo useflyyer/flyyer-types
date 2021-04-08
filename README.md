@@ -144,3 +144,21 @@ export default function JavascriptTemplate({ variables }) {
   // ...
 }
 ```
+
+## Validate Flayyer Config
+
+This is optional but will help your IDE with IntelliSense to autocomplete and hint you.
+
+```js
+// flayyer.config.js
+const { config } = require("@flayyer/flayyer-types");
+require("dotenv").config();
+
+module.exports = config({
+  engine: "react",
+  key: process.env.FLAYYER_KEY,
+  deck: "my-deck",
+  name: "My Deck", // optional
+  description: "Lorem ipsum with **markdown**" // optional
+});
+```
