@@ -71,7 +71,7 @@ export type FlayyerAgent = {
  * - Visit {@link https://flayyer.com} to create a Flayyer account.
  *
  * @example <caption>Example usage on React.js</caption>
- * function Template({ width, height, agent, variables, lang = "en" }: TemplateProps) {}
+ * function Template({ width, height, agent, variables, locale = "en" }: TemplateProps) {}
  *
  * @hideconstructor
  * @copyright Flayyer 2021
@@ -108,7 +108,12 @@ export class TemplateProps<Variables = { [key: string]: string }> {
   /**
    * Probably the viewer's locale but can depend on many factors such as proxies or web browsers.
    * Take this value with a grain of salt.
-   * If no lang was present the value by default is `undefined` which is safe for native `Intl` modules.
+   * If no locale was present the value by default is `undefined` which is safe for native `Intl` modules.
+   */
+  locale?: string;
+
+  /**
+   * @deprecated Use `locale` instead.
    */
   lang?: string;
 

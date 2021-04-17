@@ -97,20 +97,20 @@ export default function MainTemplate({ agent }: TemplateProps) {
 }
 ```
 
-Handle multiple locales (languages) by reading the `lang` prop. You can use some lightweight libraries to process locale internationalization (i18n) just like: [lukeed/rosetta](https://github.com/lukeed/rosetta) and [airbnb/polyglot.js](https://github.com/airbnb/polyglot.js).
+Handle multiple locales (languages) by reading the `locale` prop. You can use some lightweight libraries to process locale internationalization (i18n) just like: [lukeed/rosetta](https://github.com/lukeed/rosetta) and [airbnb/polyglot.js](https://github.com/airbnb/polyglot.js).
 
 ```tsx
-export default function MainTemplate({ lang }: TemplateProps) {
-  if (!lang) {
+export default function MainTemplate({ locale }: TemplateProps) {
+  if (!locale) {
     // no locale info was provided
-  } else if (lang === "en") {
+  } else if (locale === "en") {
     // ...
-  } else if (lang === "es-CO") {
+  } else if (locale === "es-CO") {
     // ...
   }
 
   // Native Intl module is supported ✅
-  const formatter = new Intl.DateTimeFormat(lang);
+  const formatter = new Intl.DateTimeFormat(locale);
   const humanized = formatter.format(new Date());
 }
 ```
