@@ -198,6 +198,35 @@ export type FlayyerConfig = {
    * Optional user friendly description, Markdown is allowed.
    */
   description?: string | null;
+
+  /**
+   * Optional. Valid URL, recommended if `marketplace: true`.
+   */
+  homepage?: string | null;
+  /**
+   * Optional. Same as `package.json` license field
+   */
+  license?: string | null;
+  /**
+   * Optional. Same as `package.json` keywords field to allow searching and indexing.
+   */
+  keywords?: string[] | null;
+  sizes?: (keyof typeof Sizes | "FREE")[] | null;
+  /**
+   * Optional. Parsed with https://github.com/npm/hosted-git-info
+   */
+  repository?: string | null;
+
+  /**
+   * Prevent Live Preview deploy or not.
+   * Setting it to `false` makes this deck accessible via a *.flayyer.xyz URL. Setting it to `true` prevents Live Preview thus makes it completely private.
+   * Default: `false`.
+   */
+  private?: boolean | null;
+  /**
+   * Make it public on https://flayyer.com/marketplace. Default: `false`.
+   */
+  marketplace?: boolean | null;
 };
 
 /**
