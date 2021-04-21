@@ -1664,10 +1664,10 @@ es-to-primitive@^1.2.1:
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
 
-esbuild@^0.11.11:
-  version "0.11.11"
-  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.11.11.tgz#8f235e0a1a34253a47fd80d51f12084dd98074bd"
-  integrity sha512-iq5YdV63vY/nUAFIvY92BXVkYjMbOchnofLKoLKMPZIa4uuIJAJG9WRA+ZRjQBZbrsORUwvZcANeG2d3p46PJQ==
+esbuild@^0.11.12:
+  version "0.11.12"
+  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.11.12.tgz#8cbe15bcb44212624c3e77c896a835f74dc71c3c"
+  integrity sha512-c8cso/1RwVj+fbDvLtUgSG4ZJQ0y9Zdrl6Ot/GAjyy4pdMCHaFnDMts5gqFnWRPLajWtEnI+3hlET4R9fVoZng==
 
 escape-string-regexp@^1.0.5:
   version "1.0.5"
@@ -4230,10 +4230,10 @@ rollup-plugin-dts@^3.0.1:
   optionalDependencies:
     "@babel/code-frame" "^7.12.13"
 
-rollup-plugin-esbuild@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-esbuild/-/rollup-plugin-esbuild-4.0.1.tgz#b36f97ce5d9d9c85106f896ba1d5f28a1ee78ca4"
-  integrity sha512-f7YxTF7kSkAipyB7m3d7286vjXfwgjhSkAjOzg/u38H3kET9dp2mapc8uDfr1W6BCs6Bb7vxe1YaGF47q3SdLA==
+rollup-plugin-esbuild@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-esbuild/-/rollup-plugin-esbuild-4.1.0.tgz#f3a85ee4a24df2b72f29682d2c4f8b253e1805a3"
+  integrity sha512-1Ti3tI/zpoPfaq2jh4TO/blUiEnMOFwzjGBdBQPN19I+5vpL9xWDQfGUjjTWESIubH1lsCfpTj9rpOpXle6n4A==
   dependencies:
     "@rollup/pluginutils" "^4.1.0"
     joycon "^3.0.1"
