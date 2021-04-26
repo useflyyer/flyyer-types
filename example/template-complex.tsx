@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Variable as V, ToVariables } from "@flayyer/variables";
+import { Variable as V, AsVariables } from "@flayyer/variables";
 
 import { TemplateProps, FlayyerAgentName } from "../src";
 
@@ -22,7 +22,7 @@ export const getFlayyerSchema = () => {
   return { schema };
 };
 
-type Variables = ToVariables<typeof getFlayyerSchema>;
+type Variables = AsVariables<typeof getFlayyerSchema>;
 
 export default function MainTemplate({ width, height, agent, variables }: TemplateProps<Variables>) {
   const {

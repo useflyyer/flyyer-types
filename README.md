@@ -42,7 +42,7 @@ Since URL serialization converts `Date` and `number` to strings, every field typ
 ```tsx
 import React from "react";
 import { TemplateProps } from "@flayyer/flayyer-types";
-import { Variable as V, ToVariables } from "@flayyer/variables";
+import { Variable as V, AsVariables } from "@flayyer/variables";
 
 // Example:
 export const getFlayyerSchema = () => {
@@ -60,7 +60,7 @@ export const getFlayyerSchema = () => {
   return { schema };
 };
 
-type Variables = ToVariables<typeof getFlayyerSchema>;
+type Variables = AsVariables<typeof getFlayyerSchema>;
 
 export default function Template({ variables }: TemplateProps<Variables>) {
   const {
