@@ -168,6 +168,6 @@ module.exports = config({
   license: "MIT",
   keywords: ["keyword"],
   sizes: ["THUMBNAIL", "BANNER", "SQUARE", "STORY"], // supported sizes
-  repository: "", // show source on https://flayyer.com/marketplace
+  repository: "https://github.com/flayyer/repository", // show source on https://flayyer.com/marketplace
 });
 ```
