@@ -237,10 +237,3 @@ export function config(params: FlayyerConfig): FlayyerConfig {
   // TODO: validate
   return params;
 }
-
-/**
- * Helper function for type support. TODO: Find a better way like: `export const getFlayyerSchema: GetFlayyerSchema = () => { schema: ... }`
- */
-export function getFlayyerSchemaHandler<T>(handler: () => { schema: T } | Promise<{ schema: T }>) {
-  return () => Promise.resolve(handler()).then((result) => ({ schema: result.schema }));
-}

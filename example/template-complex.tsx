@@ -1,28 +1,25 @@
 import React from "react";
 
-import { Variable as V, AsVariables } from "@flayyer/variables";
+import { Variable as V, Static } from "@flayyer/variables";
 
 import { TemplateProps, FlayyerAgentName } from "../src";
 
 /**
- * Export `getFlayyerSchema` to make variables visible on https://flayyer.com/
+ * Export `schema` to make variables visible on https://flayyer.com/
  */
-export const getFlayyerSchema = () => {
-  const schema = V.Object({
-    title: V.String({ description: "Show this on https://flayyer.com" }),
-    count: V.Integer({ title: "Count of items" }),
-    price: V.Number({ default: 10.0 }),
-    createdAt: V.Optional(V.String({ format: "date-time" })),
-    object: V.Object({
-      name: V.String(),
-      age: V.Integer(),
-    }),
-    array: V.Array(V.Number(), { description: "An array of numbers" }),
-  });
-  return { schema };
-};
+export const schema = V.Object({
+  title: V.String({ description: "Show this on https://flayyer.com" }),
+  count: V.Integer({ title: "Count of items" }),
+  price: V.Number({ default: 10.0 }),
+  createdAt: V.Optional(V.String({ format: "date-time" })),
+  object: V.Object({
+    name: V.String(),
+    age: V.Integer(),
+  }),
+  array: V.Array(V.Number(), { description: "An array of numbers" }),
+});
 
-type Variables = AsVariables<typeof getFlayyerSchema>;
+type Variables = Static<typeof schema>;
 
 export default function MainTemplate({ width, height, agent, variables }: TemplateProps<Variables>) {
   const {

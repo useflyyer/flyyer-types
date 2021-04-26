@@ -360,10 +360,10 @@
     eslint-plugin-react "^7.22.0"
     eslint-plugin-react-hooks "^4.2.0"
 
-"@flayyer/variables@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@flayyer/variables/-/variables-0.2.0.tgz#042bc3d7a5acb4ad882227ee41492ec9cdb0f1c2"
-  integrity sha512-BjzE6b+n8d26uYRcDAOJXazHMn+NQ0Ff0oGJG+Ddl5BRLpyO+y+7/+nFhc3wCcbE/7to8GRz/Z+Ey8mkkvlJcw==
+"@flayyer/variables@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@flayyer/variables/-/variables-1.0.0.tgz#8eb7d534a2fd80505555fadc2621a9e290c111ac"
+  integrity sha512-NQOWOney8b9GabdsAZzl0ouuFkk0U4zskcqHFZQBt4jm/pJ3N00zeZmf3GmF6dr9haaUYl+NeqYLV6o2fJjwRw==
   dependencies:
     "@sinclair/typebox" "^0.16.5"
 
