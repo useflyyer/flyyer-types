@@ -360,6 +360,13 @@
     eslint-plugin-react "^7.22.0"
     eslint-plugin-react-hooks "^4.2.0"
 
+"@flayyer/variables@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@flayyer/variables/-/variables-0.1.1.tgz#1bbaff9991e4747d1d58296118e87254d1fbbcfc"
+  integrity sha512-rn9zwqYZRvnoeRisu/BObC5edt3qqG3GRB7zsnkpUFVwDQ0uIXKd5UtJHSqYcEMC6zGxRm0P/VqY25ijoJQe8A==
+  dependencies:
+    "@sinclair/typebox" "^0.16.5"
+
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@istanbuljs/load-nyc-config/-/load-nyc-config-1.1.0.tgz#fd3db1d59ecf7cf121e80650bb86712f9b55eced"
@@ -575,6 +582,11 @@
   dependencies:
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
+
+"@sinclair/typebox@^0.16.5":
+  version "0.16.5"
+  resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.16.5.tgz#c5fea69bb29f1b2a72e4d87851d8b2461b47994f"
+  integrity sha512-0AZ9wqPcyq0ekH5yLoTelu183C7G4K0vy5ROOZl4A4KBOk1TcGk00iOmz5PhTjWQ9Bq7wAPfGclVsn7MTHzbTg==
 
 "@sinonjs/commons@^1.7.0":
   version "1.8.1"
@@ -1664,10 +1676,10 @@ es-to-primitive@^1.2.1:
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
 
-esbuild@^0.11.12:
-  version "0.11.12"
-  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.11.12.tgz#8cbe15bcb44212624c3e77c896a835f74dc71c3c"
-  integrity sha512-c8cso/1RwVj+fbDvLtUgSG4ZJQ0y9Zdrl6Ot/GAjyy4pdMCHaFnDMts5gqFnWRPLajWtEnI+3hlET4R9fVoZng==
+esbuild@^0.11.14:
+  version "0.11.14"
+  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.11.14.tgz#0f4beba211d6d23e2825f61a89ccff1eef96361b"
+  integrity sha512-ejheEPkqhq5y0LM9rG9e+3yDihPtqeeE4NZmG7VQiSGJ3CjO4HvPOHmhhttSksfSztjLAGo2+0/zSIvlqj4JOQ==
 
 escape-string-regexp@^1.0.5:
   version "1.0.5"
@@ -1792,10 +1804,10 @@ eslint-visitor-keys@^2.0.0:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-2.0.0.tgz#21fdc8fbcd9c795cc0321f0563702095751511a8"
   integrity sha512-QudtT6av5WXels9WjIM7qz1XD1cWGvX4gGXvp/zBn9nXG02D0utdU3Em2m/QjTnrsk6bBjmCygl3rmj118msQQ==
 
-eslint@^7.24.0:
-  version "7.24.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.24.0.tgz#2e44fa62d93892bfdb100521f17345ba54b8513a"
-  integrity sha512-k9gaHeHiFmGCDQ2rEfvULlSLruz6tgfA8DEn+rY9/oYPFFTlz55mM/Q/Rij1b2Y42jwZiK3lXvNTw6w6TXzcKQ==
+eslint@^7.25.0:
+  version "7.25.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.25.0.tgz#1309e4404d94e676e3e831b3a3ad2b050031eb67"
+  integrity sha512-TVpSovpvCNpLURIScDRB6g5CYu/ZFq9GfX2hLNIV4dSBKxIWojeDODvYl3t0k0VtMxYeR8OXPCFE5+oHMlGfhw==
   dependencies:
     "@babel/code-frame" "7.12.11"
     "@eslint/eslintrc" "^0.4.0"

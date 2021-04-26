@@ -71,7 +71,7 @@ export type FlayyerAgent = {
  * - Visit {@link https://flayyer.com} to create a Flayyer account.
  *
  * @example <caption>Example usage on React.js</caption>
- * function Template({ width, height, agent, variables, locale = "en" }: TemplateProps) {}
+ * export default function Template({ width, height, agent, variables, locale = "en" }: TemplateProps) {}
  *
  * @hideconstructor
  * @copyright Flayyer 2021
@@ -82,9 +82,9 @@ export class TemplateProps<Variables = { [key: string]: string }> {
    * This object has been decoded and parsed, but keep in mind that every variable is a `string`, `object` or an `array`.
    * If you expect a number please convert the value from string to number. Eg: `Number(variable.count)`
    * @example <caption>Example without explicit variables</caption>
-   * function Template({ variables }: TemplateProps) {}
+   * export default function Template({ variables }: TemplateProps) {}
    * @example <caption>Example with explicit typed variables</caption>
-   * function Template({ variables }: TemplateProps<{ title: string, count: string }>) {
+   * export default function Template({ variables }: TemplateProps<{ title: string, count: string }>) {
    *   const count = Number(variables.count); // Always parse string to number
    *   return (<Content>{variables.title} - {count}</Content>);
    * }
@@ -97,7 +97,7 @@ export class TemplateProps<Variables = { [key: string]: string }> {
   /**
    * Represents the crawler of the site where a link was posted.
    * @example <caption>Example with conditional rendering</caption>
-   * function Template({ agent, variables }: TemplateProps) {
+   * export default function Template({ agent, variables }: TemplateProps) {
    *   if (agent.name === "whatsapp") {
    *     // Rendered as squared template
    *   }
@@ -236,4 +236,11 @@ export type FlayyerConfig = {
 export function config(params: FlayyerConfig): FlayyerConfig {
   // TODO: validate
   return params;
+}
+
+/**
+ * Helper function for type support. TODO: Find a better way like: `export const getFlayyerSchema: GetFlayyerSchema = () => { schema: ... }`
+ */
+export function getFlayyerSchemaHandler<T>(handler: () => { schema: T } | Promise<{ schema: T }>) {
+  return () => Promise.resolve(handler()).then((result) => ({ schema: result.schema }));
 }
