@@ -42,25 +42,27 @@ Since URL serialization converts `Date` and `number` to strings, every field typ
 ```tsx
 import React from "react";
 import { TemplateProps } from "@flayyer/flayyer-types";
+import { Variable as V, AsVariables } from "@flayyer/variables";
 
 // Example:
-type Variables = {
-  title: string;
-  count: number;
-  price: number;
-  createdAt: Date;
-  object: {
-    name: string;
-    age: number;
-  };
-  array: [
-    {
-      id: number;
-    },
-  ];
+export const getFlayyerSchema = () => {
+  const schema = V.Object({
+    title: V.String({ description: "Show this on https://flayyer.com" }),
+    count: V.Integer({ title: "Count of items" }),
+    price: V.Number({ default: 10.0 }),
+    createdAt: V.Optional(V.String({ format: "date-time" })),
+    object: V.Object({
+      name: V.String(),
+      age: V.Integer(),
+    }),
+    array: V.Array(V.Number(), { description: "An array of numbers" }),
+  });
+  return { schema };
 };
 
-export default function MainTemplate({ variables }: TemplateProps<Variables>) {
+type Variables = AsVariables<typeof getFlayyerSchema>;
+
+export default function Template({ variables }: TemplateProps<Variables>) {
   const {
     title, // type is `string | undefined`
     count, // type is `string | undefined`
@@ -158,7 +160,14 @@ module.exports = config({
   engine: "react",
   key: process.env.FLAYYER_KEY,
   deck: "my-deck",
-  name: "My Deck", // optional
-  description: "Lorem ipsum with **markdown**" // optional
+
+  // Optionals
+  name: "My Deck",
+  description: "Lorem ipsum with **markdown**"
+  marketplace: true, // Make deck public on https://flayyer.com/marketplace when `true`.
+  license: "MIT",
+  keywords: ["keyword"],
+  sizes: ["THUMBNAIL", "BANNER", "SQUARE", "STORY"], // supported sizes
+  repository: "https://github.com/flayyer/repository", // show source on https://flayyer.com/marketplace
 });
 ```
