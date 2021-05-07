@@ -200,11 +200,11 @@ export type FlayyerConfig = {
   description?: string | null;
 
   /**
-   * Optional. Valid URL, recommended if `marketplace: true`.
+   * Optional. Same as `package.json` license field.
    */
   homepage?: string | null;
   /**
-   * Optional. Same as `package.json` license field
+   * Optional. Same as `package.json` license field.
    */
   license?: string | null;
   /**
@@ -218,13 +218,11 @@ export type FlayyerConfig = {
   repository?: string | null;
 
   /**
-   * Prevent Live Preview deploy or not.
-   * Setting it to `false` makes this deck accessible via a *.flayyer.xyz URL. Setting it to `true` prevents Live Preview thus makes it completely private.
-   * Default: `false`.
+   * Make deck public on https://flayyer.com/community when `false`. Defaults to `true` to prevent unintended public publishing.
    */
   private?: boolean | null;
   /**
-   * Make it public on https://flayyer.com/marketplace. Default: `false`.
+   * @deprecated Use `private: false` instead.
    */
   marketplace?: boolean | null;
 };

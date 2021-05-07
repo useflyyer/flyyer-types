@@ -161,10 +161,10 @@ module.exports = config({
   // Optionals
   name: "My Deck",
   description: "Lorem ipsum with **markdown**"
-  marketplace: true, // Make deck public on https://flayyer.com/marketplace when `true`.
+  private: false, // Make deck public on https://flayyer.com/community when `false`.
   license: "MIT",
   keywords: ["keyword"],
   sizes: ["THUMBNAIL", "BANNER", "SQUARE", "STORY"], // supported sizes
-  repository: "https://github.com/flayyer/repository", // show source on https://flayyer.com/marketplace
+  repository: "https://github.com/flayyer/repository", // show source on https://flayyer.com/community
 });
 ```
