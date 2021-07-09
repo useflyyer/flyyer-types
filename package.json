@@ -1,6 +1,6 @@
 {
   "name": "@flyyer/types",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Flyyer types definition for Typescript templates",
   "keywords": [
     "flyyer"
@@ -30,8 +30,8 @@
   "dependencies": {},
   "peerDependencies": {},
   "devDependencies": {
-    "@flyyer/variables": "^2.0.0",
     "@flyyer/eslint-config": "^2.0.1",
+    "@flyyer/variables": "^2.0.0",
     "@types/jest": "^26.0.23",
     "@types/react": "^17.0.14",
     "esbuild": "^0.11.20",
