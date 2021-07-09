@@ -1,9 +1,9 @@
 {
-  "name": "@flayyer/flayyer-types",
+  "name": "@flyyer/types",
   "version": "1.11.2",
-  "description": "Flayyer type definition for Typescript templates",
+  "description": "Flyyer types definition for Typescript templates",
   "keywords": [
-    "flayyer"
+    "flyyer"
   ],
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -11,9 +11,9 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/flayyer/flayyer-types"
+    "url": "https://github.com/useflyyer/flyyer-types"
   },
-  "author": "Patricio Lopez <patricio@flayyer.com>",
+  "author": "Patricio Lopez <patricio@flyyer.io>",
   "license": "MIT",
   "private": false,
   "scripts": {
@@ -30,9 +30,10 @@
   "dependencies": {},
   "peerDependencies": {},
   "devDependencies": {
-    "@flayyer/eslint-config": "^1.1.1",
     "@flayyer/variables": "^1.4.1",
+    "@flyyer/eslint-config": "^2.0.1",
     "@types/jest": "^26.0.23",
+    "@types/react": "^17.0.14",
     "esbuild": "^0.11.20",
     "eslint": "^7.26.0",
     "husky": "^4.3.7",

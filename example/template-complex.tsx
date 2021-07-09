@@ -2,13 +2,13 @@ import React from "react";
 
 import { Variable as V, Static } from "@flayyer/variables";
 
-import { TemplateProps, FlayyerAgentName } from "../src";
+import { TemplateProps, FlyyerAgentName } from "../src";
 
 /**
- * Export `schema` to make variables visible on https://flayyer.com/
+ * Export `schema` to make variables visible on https://flyyer.io/
  */
 export const schema = V.Object({
-  title: V.String({ description: "Show this on https://flayyer.com" }),
+  title: V.String({ description: "Show this on https://flyyer.io" }),
   count: V.Integer({ title: "Count of items" }),
   price: V.Number({ default: 10.0 }),
   createdAt: V.Optional(V.String({ format: "date-time" })),
@@ -31,7 +31,7 @@ export default function MainTemplate({ width, height, agent, variables }: Templa
     array, // type is a recursive array with `string | undefined` values
   } = variables;
 
-  if (agent.name === FlayyerAgentName.WHATSAPP) {
+  if (agent.name === FlyyerAgentName.WHATSAPP) {
     // Custom rules for squared template
     return <div>{title && <h1>{title}</h1>}</div>;
   }

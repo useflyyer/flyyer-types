@@ -1,22 +1,22 @@
-# @flayyer/flayyer-types
+# @flyyer/types
 
-![npm-version](https://badgen.net/npm/v/@flayyer/flayyer-types)
-![downloads](https://badgen.net/npm/dt/@flayyer/flayyer-types)
-![size](https://badgen.net/bundlephobia/minzip/@flayyer/flayyer-types)
-![tree-shake](https://badgen.net/bundlephobia/tree-shaking/@flayyer/flayyer-types)
+![npm-version](https://badgen.net/npm/v/@flyyer/types)
+![downloads](https://badgen.net/npm/dt/@flyyer/types)
+![size](https://badgen.net/bundlephobia/minzip/@flyyer/types)
+![tree-shake](https://badgen.net/bundlephobia/tree-shaking/@flyyer/types)
 
-Flayyer type definition for Typescript templates created with [create-flayyer-app](https://github.com/flayyer/create-flayyer-app/).
+Flyyer type definition for Typescript templates created with [create-flyyer-app](https://github.com/useflyyer/create-flyyer-app/).
 
-**👉 Want to learn more about rendering images? Visit as at [flayyer.com](https://flayyer.com?ref=flayyer-types)**
+**👉 Want to learn more about rendering images? Visit us at [flyyer.io](https://flyyer.io?ref=flyyer-types)**
 
-**📖 Checkout our official documentation: [docs.flayyer.com](https://docs.flayyer.com/docs/advanced/typescript)**
+**📖 Checkout our official documentation: [docs.flyyer.io](https://docs.flyyer.io/docs/advanced/typescript?ref=flyyer-types)**
 
 ## Install
 
 ```sh
-npm install --save-dev @flayyer/flayyer-types
+npm install --save-dev @flyyer/types
 
-yarn add --dev @flayyer/flayyer-types
+yarn add --dev @flyyer/types
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ The provided `TemplateProps<T>` accepts a generic object type for the possible v
 
 ```tsx
 import React from "react";
-import { TemplateProps } from "@flayyer/flayyer-types";
+import { TemplateProps } from "@flyyer/types";
 
 export default function SimpleTemplate({ variables }: TemplateProps) {
   const title = variables.title; // type is `string | undefined`;
@@ -41,12 +41,12 @@ Since URL serialization converts `Date` and `number` to strings, every field typ
 
 ```tsx
 import React from "react";
-import { TemplateProps } from "@flayyer/flayyer-types";
+import { TemplateProps } from "@flyyer/types";
 import { Variable as V, Static } from "@flayyer/variables";
 
 // Example:
 export const schema = V.Object({
-  title: V.String({ description: "Show this on https://flayyer.com" }),
+  title: V.String({ description: "Show this on https://flyyer.io" }),
   count: V.Integer({ title: "Count of items" }),
   price: V.Number({ default: 10.0 }),
   createdAt: V.Optional(V.String({ format: "date-time" })),
@@ -83,10 +83,10 @@ Sometimes we can identify which platform your link are being shared on. You can 
 
 ```tsx
 import React from "react";
-import { TemplateProps, FlayyerAgentName } from "@flayyer/flayyer-types";
+import { TemplateProps, FlyyerAgentName } from "@flyyer/types";
 
 export default function MainTemplate({ agent }: TemplateProps) {
-  if (agent.name === FlayyerAgentName.WHATSAPP) {
+  if (agent.name === FlyyerAgentName.WHATSAPP) {
     // Custom rules for squared template
     return ...
   } else {
@@ -119,12 +119,12 @@ export default function MainTemplate({ locale }: TemplateProps) {
 ## Import assets
 
 Remove Typescript warning when importing files such as images, fonts, style files, etc.
-Use the following code in a `types.d.ts` file in the root fo your Flayyer project.
+Use the following code in a `types.d.ts` file in the root fo your Flyyer project.
 
 ```ts
 // types.d.ts
 
-/// <reference types="@flayyer/flayyer-types/global" />
+/// <reference types="@flyyer/types/global" />
 ```
 
 ## Experimental Javascript support
@@ -132,11 +132,11 @@ Use the following code in a `types.d.ts` file in the root fo your Flayyer projec
 You can help your IDE with typing information. Here is an working but experimental example in Visual Studio Code:
 
 ```js
-import { TemplateProps } from "@flayyer/flayyer-types"; // eslint-disable-line no-unused-vars
+import { TemplateProps } from "@flyyer/types"; // eslint-disable-line no-unused-vars
 
 /**
  * Make sure to default export a React component
- * @param {TemplateProps} [props] - Flayyer props.
+ * @param {TemplateProps} [props] - Flyyer props.
  */
 export default function JavascriptTemplate({ variables }) {
   const title = variables.title; // IDE will suggest `title` has type `string | undefined`
@@ -144,27 +144,27 @@ export default function JavascriptTemplate({ variables }) {
 }
 ```
 
-## Validate Flayyer Config
+## Validate Flyyer Config
 
 This is optional but will help your IDE with IntelliSense to autocomplete and hint you.
 
 ```js
-// flayyer.config.js
-const { config } = require("@flayyer/flayyer-types");
+// flyyer.config.js
+const { config } = require("@flyyer/types");
 require("dotenv").config();
 
 module.exports = config({
   engine: "react",
-  key: process.env.FLAYYER_KEY,
+  key: process.env.FLYYER_KEY,
   deck: "my-deck",
 
   // Optionals
   name: "My Deck",
   description: "Lorem ipsum with **markdown**"
-  private: false, // Make deck public on https://flayyer.com/community when `false`.
+  private: false, // Make deck public on https://flyyer.io/community when `false`.
   license: "MIT",
   keywords: ["keyword"],
   sizes: ["THUMBNAIL", "BANNER", "SQUARE", "STORY"], // supported sizes
-  repository: "https://github.com/flayyer/repository", // show source on https://flayyer.com/community
+  repository: "https://github.com/useflyyer/repository", // show source on https://flyyer.io/community
 });
 ```
