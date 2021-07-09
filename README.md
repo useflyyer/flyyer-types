@@ -42,7 +42,7 @@ Since URL serialization converts `Date` and `number` to strings, every field typ
 ```tsx
 import React from "react";
 import { TemplateProps } from "@flyyer/types";
-import { Variable as V, Static } from "@flayyer/variables";
+import { Variable as V, Static } from "@flyyer/variables";
 
 // Example:
 export const schema = V.Object({

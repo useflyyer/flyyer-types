@@ -30,7 +30,7 @@
   "dependencies": {},
   "peerDependencies": {},
   "devDependencies": {
-    "@flayyer/variables": "^1.4.1",
+    "@flyyer/variables": "^2.0.0",
     "@flyyer/eslint-config": "^2.0.1",
     "@types/jest": "^26.0.23",
     "@types/react": "^17.0.14",

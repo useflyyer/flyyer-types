@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Variable as V, Static } from "@flayyer/variables";
+import { Variable as V, Static } from "@flyyer/variables";
 
 import { TemplateProps, FlyyerAgentName } from "../src";
 
