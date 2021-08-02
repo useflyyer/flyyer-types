@@ -42,6 +42,41 @@ Since URL serialization converts `Date` and `number` to strings, every field typ
 ```tsx
 import React from "react";
 import { TemplateProps } from "@flyyer/types";
+
+// Example:
+type Variables = {
+  title: string;
+  count: number;
+  price: number;
+  created: Date;
+  object: {
+    name: string;
+    age?: number;
+  };
+  array?: number[];
+}
+
+export default function Template({ variables }: TemplateProps<Variables>) {
+  const {
+    title, // type is `string | undefined`
+    count, // type is `string | undefined`
+    price = 10, // type is `string | 10` because incoming values will be string!
+    createdAt, // type is `string | undefined`
+    object, // type is a recursive object with `string | undefined` values: `{ name?: string | age?: string } | undefined`
+    array, // type is a recursive array with `string | undefined` values: `(string | undefined)[] | undefined`
+  } = variables;
+
+  return (
+    <div>
+      {title && <h1>{title}</h1>}
+    </div>
+  );
+}
+```
+
+To avoid this issue we encourage using [@flyyer/variables](https://github.com/useflyyer/flyyer-variables) which can parse and coerce types and handle default values.
+
+```tsx
 import { Variable as V, Static } from "@flyyer/variables";
 
 // Example:
@@ -61,19 +96,15 @@ type Variables = Static<typeof schema>;
 
 export default function Template({ variables }: TemplateProps<Variables>) {
   const {
-    title, // type is `string | undefined`
-    count, // type is `string | undefined`
-    price = 10, // type is `string | 10` because incoming values will be string!
-    createdAt, // type is `string | undefined`
-    object, // type is a recursive object with `string | undefined` values
-    array, // type is a recursive array with `string | undefined` values
-  } = variables;
-
-  return (
-    <div>
-      {title && <h1>{title}</h1>}
-    </div>
-  );
+    data: {
+      title, // type is `string`,
+      count, // type is `number`
+      price, // type is `number`
+      createdAt, // type is `string | undefined` and a valid for `new Date(...)`
+      object, // type if the expected object type
+      array, // type is `number[]`
+    },
+  } = validator.parse(variables);
 }
 ```
 
@@ -118,8 +149,8 @@ export default function MainTemplate({ locale }: TemplateProps) {
 
 ## Import assets
 
-Remove Typescript warning when importing files such as images, fonts, style files, etc.
-Use the following code in a `types.d.ts` file in the root fo your Flyyer project.
+To remove Typescript warning when importing files such as images, fonts, style files, etc.
+Use the following code in a `types.d.ts` file in the root of your Flyyer deck.
 
 ```ts
 // types.d.ts
@@ -160,7 +191,7 @@ module.exports = config({
 
   // Optionals
   name: "My Deck",
-  description: "Lorem ipsum with **markdown**"
+  description: "Lorem ipsum with **markdown**",
   private: false, // Make deck public on https://flyyer.io/community when `false`.
   license: "MIT",
   keywords: ["keyword"],

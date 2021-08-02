@@ -185,8 +185,8 @@ export type FlyyerConfig = {
    * **This will create a new version of previous deployed instances of this code.**
    * You can always refer a specific version by setting the `version` field, see {@link https://docs.flyyer.io/docs/concepts#url-anatomy}
    *
-   * - `my-project-1`: OK
-   * - `My Project`: INVALID
+   * - `my-deck-1`: OK
+   * - `My Deck`: INVALID
    */
   deck: string;
 
