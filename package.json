@@ -1,6 +1,6 @@
 {
   "name": "@flyyer/types",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Flyyer types definition for Typescript templates",
   "keywords": [
     "flyyer"
